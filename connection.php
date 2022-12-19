@@ -4,15 +4,15 @@ function conectaBD() {
     $host = 'localhost';
     $user = 'root';
     $pass = '';
-    $bd = 'tienda';
+    $bd = 'tienda_info';
 
-    $enlace = new mysqli($host, $user, $pass, $bd);
+    $conn = new mysqli($host, $user, $pass, $bd);
     
-    if (!$enlace) {
-        echo "Error en el enlace. " . mysqli_connect_error();
+    if (!$conn) {
+        echo "Error en el conn. " . mysqli_connect_error();
     }
     
-    return $enlace;
+    return $conn;
 }
     
-$enlace = conectaBD();
+$conn = conectaBD();
