@@ -19,7 +19,7 @@
     </header>
     <main>
         <div class="container-fluid">
-            <div class="row d-flex justify-content-center text-center" style="background-color: #0E4159;">
+            <div class="row d-flex justify-content-center text-center mb-3" style="background-color: #0E4159;">
                 <div class="col-2">
                     <a href="./fabricants.php">Inicio</a>
                 </div>
@@ -32,21 +32,29 @@
             </div>
 
             <div class="row">
-                <div class="col-3">
-                    <ul class="nav flex-column">
+                <div class="col-4">
+                    <ul class="nav flex-column pt-2 mb-3 me-3" style="background-color: #0E4159;">
+                        <h6 class="text-center">Fabricantes</h6>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Nuevo fabricante</a>
+                            <a class="nav-link active" aria-current="page" href="./fabricantes/NewFab.php">Nuevo fabricante</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Editar fabricante</a>
+                            <a class="nav-link" href="./fabricantes/delete&modify.php">Editar/eliminar fabricante</a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav flex-column pt-2 mb-3 me-3" style="background-color: #0E4159;">
+                        <h6 class="text-center">Productos</h6>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./productos/addProduct.php">Nuevo producto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Eliminar</a>
+                            <a class="nav-link" href="./productos/delete&modify.php">Editar/eliminar fabricante</a>
                         </li>
                     </ul>
                 </div>
 
-                <div class="col-9">
+                <div class="row col-8" style="background-color: #0E4159;">
                     <?php
                     // Fichero que incluye la conxion con la base de datos
                     include './connection.php';
@@ -57,14 +65,13 @@
 
                     while ($fila = mysqli_fetch_row($result)) {
                         echo '
-                    <div class="col-3">
-                    <div class="card">
-                    <a href="./productes.php?codfab=' . $fila[0] . '"><img src="' . $fila[2] . '" class="card-img-top"></a>
+                    <div class="col-4 pt-2">
+                    <div class="card m-3">
+                    <a href="./productes.php?codfab=' . $fila[0] . '"><img height="200" src="' . $fila[2] . '" class="card-img-top"></a>
                     </div>
                     </div>';
                     }
                     ?>
-
                 </div>
             </div>
         </div>
