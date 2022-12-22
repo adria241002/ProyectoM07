@@ -1,6 +1,9 @@
 body{
+    background-color:  #18719B;
+}
+.body2{
     background-color: #f5eded;
-    margin-top:20px;
+
 }
 .card {
     margin-bottom: 30px;
@@ -27,4 +30,39 @@ body{
 .table-product td{
     border-top: 0px solid #dee2e6 !important;
     color: #728299!important;
+}
+.button {
+    background-color: #555555; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8px;
+    font-size: 12px;
+}
+.button:hover{
+    color: black;
+}
+.enlaces{
+    text-decoration: none;
+    color: white;
+}
+.enlaces:hover{
+    color: black;
+}
+table{
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    
+}
+td{
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
 }

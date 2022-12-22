@@ -9,28 +9,31 @@
 
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    
 
 </head>
 
-<body class="text-white">
-    <header style="background-color: #0E4159;">
+<body class="text-white body2">
+<link rel="stylesheet" href="./css/style.css">
+
+    <header style="background-color: #0E4159; height: 40px ; margin-bottom:30px">
         <!-- place navbar here -->
-        <h3 class="text-center">Tienda informática</h3>
-    </header>
-    <main>
-        <div class="container-fluid">
-            <div class="row d-flex justify-content-center text-center mb-3" style="background-color: #0E4159;">
-                <div class="col-2">
-                    <a href="./fabricants.php">Inicio</a>
+        <div class="row d-flex" style="padding-left:10px ; padding-top : 5px;">
+                <div class="col-3">
+                     <h3>Tienda informática</h3>
                 </div>
-                <div class="col-2">
-                    <a href="./productes.php">Productos</a>
+                <div class="col-3">
+                    <a class="enlaces" href="./fabricants.php"><h3>Inicio</h3> </a>
                 </div>
-                <div class="col-2">
-                    <a href="./fabricants.php">Fabricantes</a>
+                <div class="col-3">
+                    <a class="enlaces" href="./productes.php"><h3>Productos</h3> </a>
+                </div>
+                <div class="col-3">
+                    <a class="enlaces"  href="./fabricants.php"><h3>Fabricantes</h3> </a>
                 </div>
             </div>
-
+    </header>
+    <main>
             <div class="row">
                 <div class="col-4">
                     <ul class="nav flex-column pt-2 mb-3 me-3" style="background-color: #0E4159;">
