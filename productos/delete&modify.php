@@ -1,7 +1,7 @@
 <?php
 include('../connection.php');
 
-$result2 = mysqli_query($conn, "SELECT * FROM PRODUCTO ");
+$result2 = mysqli_query($conn, "SELECT imagen,prod.codigo as cod, prod.nombre as nom, prod.precio, fab.nombre as nomfab FROM producto prod JOIN fabricante fab ON prod.codigo_fabricante = fab.codigo");
 
 
 ?>
@@ -47,10 +47,10 @@ $result2 = mysqli_query($conn, "SELECT * FROM PRODUCTO ");
     </header>
     <table>
         <tr>
-            <th>Id</th>
             <th>Nom</th>
+            <th>Producto</th>
             <th>Preu</th>
-            <th>Cod_Farbicant</th>
+            <th>Farbicant</th>
         </tr>
         <?php
         $i = 0;
@@ -61,14 +61,14 @@ $result2 = mysqli_query($conn, "SELECT * FROM PRODUCTO ");
             } else {
                 echo "<tr>";
             }
-            echo "<td>" . $fila["codigo"] . "</td>";
-            echo "<td>" . $fila["nombre"] . "</td>";
+            echo "<td>" . $fila["nom"] . "</td>";
+            echo "<td><img height='50' src='" . $fila["imagen"] . "'></td>";
             echo "<td>" . $fila["precio"] . "€</td>";
-            echo "<td>" . $fila["codigo_fabricante"] . "</td>";
-            echo "<td> <a href='./modificarProducte.php?p=" . $fila["codigo"] . "'><span class='material-symbols-outlined'>
+            echo "<td>" . $fila["nomfab"] . "</td>";
+            echo "<td> <a href='./modificarProducte.php?p=" . $fila["cod"] . "'><span class='material-symbols-outlined'>
         edit_note
         </span></a> </td>";
-            echo "<td> <a href='./esborrarProducte.php?p=" . $fila["codigo"] . "'><span class='material-symbols-outlined'>
+            echo "<td> <a href='./esborrarProducte.php?p=" . $fila["cod"] . "'><span class='material-symbols-outlined'>
         delete_forever
         </span></a> </td>";
             echo "</tr>";
