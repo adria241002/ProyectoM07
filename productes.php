@@ -9,6 +9,28 @@ function querys($codigo, $query)
     return $query;
 }
 
+if (!isset($_GET['pagina'])) {
+    $_GET['pagina'] = 1;
+}
+
+isset($_REQUEST['codfab']) ? $codigo = $_REQUEST['codfab'] : $codigo = ""; // Inicializo las variables 
+
+include './connection.php'; // Conecto con la BD
+
+$query = "SELECT nombre, imagen, precio, codigo FROM producto WHERE 1";
+$query = querys($codigo, $query);
+
+$resultado = mysqli_query($conn, $query);
+
+$cantRegistros = 0; // Total registros del resultado
+foreach ($resultado as $row) {
+    $cantRegistros++;
+}
+
+$cantRegiPorPag = 6;
+
+$paginas = ceil($cantRegistros / $cantRegiPorPag);
+
 ?>
 
 <!doctype html>
@@ -30,103 +52,51 @@ function querys($codigo, $query)
         <!-- place navbar here -->
     </header>
     <main>
-        <div class="row">
-        </div>
 
+        <div class="container my-5">
 
-        <?php
+            <?php
+            $iniciar = ($_GET['pagina']-1) * $cantRegiPorPag;
 
-        isset($_REQUEST['codfab']) ? $codigo = $_REQUEST['codfab'] : $codigo = ""; // Inicializo las variables 
-
-        include './connection.php'; // Conecto con la BD
-
-        if (isset($_GET['q2'])) { // Si le pasamos la query2 (Son la cantidad de registros)
-            $query2 = urldecode($_GET['q2']);
-        } else { // Sino los calculamos
-            $query2 = "SELECT count(nombre) AS totalRegistros FROM producto WHERE 1";
-            $query2 = querys($codigo, $query2); // Utilizo la funcion para concatenar
-        }
-
-        $resultado = mysqli_query($conn, $query2);
-
-        $cantRegi = 6; // Aqui preparamos el paginador y escogemos cuantos registros habra por pagina
-
-        // Total registros del resultado
-        // foreach ($resultado as $row){
-        //     print_r($row);
-        // }
-        $filaResu = mysqli_fetch_array($resultado);
-
-        $totalRegistros = $filaResu["totalRegistros"];
-        $totalPaginas = ceil($totalRegistros / $cantRegi);
-
-        if (!isset($_GET['p'])) { // Guardamos la pagina que obtenemos por get
-            $paginaActual = 1;
-        } else {
-            $paginaActual = $_GET['p'];
-        }
-
-        if (isset($_GET['q'])) { // Si le pasamos la query (Son los registros)
-            $query = urldecode($_GET['q']);
-        } else { // La query para los registros
-            $query = "SELECT nombre, imagen, precio, codigo
-        FROM producto WHERE 1";
-            $query = querys($codigo, $query); // Utilizo la funcion para concatenar
-        }
-
-        $limit = " limit " . ($paginaActual - 1) * $cantRegi . ", " . $cantRegi; // El limitador de registros
-
-        $resultado2 = mysqli_query($conn, $query . $limit);
-
-        if ($totalRegistros == 0) { // Esto es para pintar la cabecera de la tabla 
-            echo " - No se han encontrado registros"; // Si no se encuentran registros se mostrara este mensaje
-
-        } else {
-            // aqui pintar en las cards
-            $i = 0; // Mostramos los registros
-            while ($fila = mysqli_fetch_row($resultado2)) {
-                echo '
-                <div class="card text-center" style="width: 18rem;">
-                <a href="./detallProducte.php?codprod=' . $fila[3] . '">
-                <div class="card-body">
-                    <h5 class="card-title">' . $fila[0] . '</h5>
-                    <img src="' . $fila[1] . '" class="card-img-top">
-                    <p class="card-text">' . $fila[2] . '€</p></a>
-                </div>
-                </div>';
-            }
+            $queryProd = "SELECT nombre, imagen, precio, codigo FROM producto WHERE 1";
+            $queryProd = querys($codigo, $queryProd);
+            $limit = " limit " . $iniciar . ", " . $cantRegiPorPag; // El limitador de registros
+            $resultadoProd = mysqli_query($conn, $queryProd . $limit);
 
             ?>
+
+            <?php foreach($resultadoProd as $producto): ?>
+            <div class="alert alert-primary" role="alert">
+            <?php
+                echo '
+                <div class="card text-center" style="width: 18rem;">
+                <a href="./detallProducte.php?codprod=' . $producto['codigo'] . '">
+                <div class="card-body">
+                    <h5 class="card-title">' . $producto['nombre'] . '</h5>
+                    <img src="' . $producto['imagen'] . '" class="card-img-top">
+                    <p class="card-text">' . $producto['precio'] . '€</p></a>
+                </div>
+                </div>';
+            ?>
+            </div>
+            <?php endforeach ?>
+
+            <!-- Printamos el paginador -->
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
+                    <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled' : '' ?>"><a class="page-link" href="productes.php?pagina=<?php echo $_GET['pagina']-1 ?>"><</a></li>
+
+                    <!-- Printamos la cantidad de paginas con sus identificadores numericos  -->
+                    <?php for ($i=0; $i < $paginas; $i++): ?>
+                    <li class="page-item <?php echo $_GET['pagina']==$i+1 ? 'active' : '' ?>">
+                        <a class="page-link" href="productes.php?pagina=<?php echo $i+1 ?>"><?php echo $i+1 ?></a>
                     </li>
+                    <?php endfor ?>
 
-                    <?php
-                    for ($i = 1; $i <= $totalPaginas; $i++) {
-                        if ($i == $paginaActual) {
-                            echo '<li class="page-item"><a class="page-link" href="">' . $i . '</a></li>';
-                            // echo '<li class="page-item"><a class="page-link" href="productes.php?p=' . $i . '&q=' . urlencode($query) . '&q2=' . urlencode($query2) . '>' . $i . '</a></li>';
-
-                        } else {
-                            echo '<li class="page-item"><a class="page-link" href="productes.php?p=' . $i . '&q=' . urlencode($query) . '&q2=' . urlencode($query2) . '>' . $i . '</a></li>';
-                        }
-                    }
-                    ?>
-
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
+                    <li class="page-item <?php echo $_GET['pagina']>=$paginas ? 'disabled' : '' ?>"><a class="page-link" href="productes.php?pagina=<?php echo $_GET['pagina']+1 ?>">></a></li>
                 </ul>
             </nav>
-            <?php
-        }
-        ?>
+        </div>
 
     </main>
     <footer>
