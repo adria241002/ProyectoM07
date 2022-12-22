@@ -20,7 +20,7 @@
         <!-- place navbar here -->
         <div class="row d-flex" style="padding-left:10px ; padding-top : 5px;">
                 <div class="col-3">
-                     <h3>Tienda informática</h3>
+                        <h3>Tienda informática</h3>
                 </div>
                 <div class="col-3">
                     <a class="enlaces" href="./fabricants.php"><h3>Inicio</h3> </a>
@@ -52,7 +52,7 @@
                             <a class="nav-link active" aria-current="page" href="./productos/addProduct.php">Nuevo producto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./productos/delete&modify.php">Editar/eliminar fabricante</a>
+                            <a class="nav-link" href="./productos/delete&modify.php">Editar/eliminar producto</a>
                         </li>
                     </ul>
                 </div>

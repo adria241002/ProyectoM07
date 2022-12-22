@@ -26,7 +26,7 @@ if (isset($_POST['enviar'])) {
         <!-- place navbar here -->
         <div class="row d-flex" style="padding-left:10px ; padding-top : 5px;">
                 <div class="col-3">
-                     <h3>Tienda informática</h3>
+                        <h3>Tienda informática</h3>
                 </div>
                 <div class="col-3">
                     <a class="enlaces" href="../fabricants.php"><h3>Inicio</h3> </a>
@@ -41,7 +41,7 @@ if (isset($_POST['enviar'])) {
     </header>
     <main>
         <div class="container-fluid" style="background-color: #18719B;width : 500px">
-            <div class="row" style = "display-flex; align-items:center ; ">
+            <div class="row" style = "display:flex; align-items:center ; ">
                 <form action="" method="post">
                     <div class="row">
                         <div class="col-12 mb-3">

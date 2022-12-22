@@ -7,18 +7,31 @@ $result = mysqli_query($conn, "SELECT * FROM PRODUCTO WHERE CODIGO=" . $_GET['co
 
 ?>
 
+
 <div class="container">
-    <div class="row d-flex justify-content-center text-center" style="background-color: #0E4159;">
-        <div class="col-2">
-            <a href="./fabricants.php">Inicio</a>
+    <header style="background-color: #0E4159; height: 40px ; margin-bottom:30px">
+        <!-- place navbar here -->
+        <div class="row d-flex" style="padding-left:10px ; padding-top : 5px;">
+            <div class="col-3 text-white">
+                <h3>Tienda informática</h3>
+            </div>
+            <div class="col-3">
+                <a class="enlaces" href="./fabricants.php">
+                    <h3>Inicio</h3>
+                </a>
+            </div>
+            <div class="col-3">
+                <a class="enlaces" href="./productes.php">
+                    <h3>Productos</h3>
+                </a>
+            </div>
+            <div class="col-3">
+                <a class="enlaces" href="./fabricants.php">
+                    <h3>Fabricantes</h3>
+                </a>
+            </div>
         </div>
-        <div class="col-2">
-            <a href="./productes.php">Productos</a>
-        </div>
-        <div class="col-2">
-            <a href="./fabricants.php">Fabricantes</a>
-        </div>
-    </div>
+    </header>
     <div class="card">
         <div class="card-body">
             <?php

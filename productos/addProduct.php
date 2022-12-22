@@ -45,7 +45,7 @@ if (isset($_POST['enviar'])) {
     <main>
         
         <div class="container-fluid" style="width : 500px">  
-        <div class="row" style = "display-flex; align-items:center ; ">
+        <div class="row" style = "display:flex; align-items:center ; ">
                 <form action="" method="post">
                     <div class="row"    >
                         <div class="col-12 mb-3">
@@ -64,26 +64,19 @@ if (isset($_POST['enviar'])) {
                         </div>
                         <div class="col-12 mb-3">
                             <label for="nombre" class="form-label">Codigo Fabricante</label>
-                            <select name="codigo_fabricante">
+                            <select name="codigo_fabricante" class="form-control">
                             <?php
                             $cont = 0;
                             while ($fila = mysqli_fetch_row($result)) {
                             
-                        
                             ?>
-                            
                                 <option value="<?php echo $fila[0]; ?>"><?php echo $fila[1];} ?></option>
-
                             </select>
                             <?php
                             $cont = 0;
                             while ($fila = mysqli_fetch_row($result)) {
-                            
-                        
                             ?>
-                            
                                 <option value="<?php echo $fila[0]; ?>"><?php echo $fila[1];} ?></option>
-
                             </select>
                         </div>
                         
