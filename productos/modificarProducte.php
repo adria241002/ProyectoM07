@@ -14,6 +14,7 @@
 
 <body class="text-white">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Creacion del header -->
     <header style="background-color: #0E4159; height: 40px ; margin-bottom:30px">
         <!-- place navbar here -->
         <div class="row d-flex" style="padding-left:10px ; padding-top : 5px;">
@@ -42,7 +43,9 @@
             <div class="row" style="display:flex; align-items:center;">
                 <div class="row">
                     <?php
+                    //Generamos la conexion
                     include('../connection.php');
+                    // Si enviamos el formulario nos modifica el producto 
                     if (isset($_POST['enviar'])) {
                         $insert2 = "UPDATE producto SET nombre='" . $_POST['nombre'] . 
                         "', precio='" . $_POST['precio'] ."', codigo_fabricante='" . $_POST['fabricante'] ."', imagen='" . $_POST['imagen'] ."' WHERE codigo='" . $_GET['p']."'";
@@ -57,6 +60,7 @@
                     $result = mysqli_query($conn ,"SELECT * FROM PRODUCTO where  codigo='" . $_GET['p'] ."'");
                     foreach ($result as $key) {
                         ?>                    
+                    <!-- creamos el formulario con lo necesario para modificar el producto -->
                         <form action="" method="post">
                         <div class="row">
                             <div class="col-12 mb-3">
