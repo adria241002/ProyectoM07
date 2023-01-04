@@ -51,6 +51,8 @@ $result2 = mysqli_query($conn, "SELECT imagen,prod.codigo as cod, prod.nombre as
             <th>Producto</th>
             <th>Preu</th>
             <th>Farbicant</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>     
         </tr>
         <?php
         $i = 0;

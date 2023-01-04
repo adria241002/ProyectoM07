@@ -16,7 +16,7 @@
 <body class="text-white body2">
 <link rel="stylesheet" href="./css/style.css">
 
-    <header style="background-color: #0E4159; height: 40px ; margin-bottom:30px">
+    <header style="background-color: #0E4159; height: 50px ; margin-bottom:30px">
         <!-- place navbar here -->
         <div class="row d-flex" style="padding-left:10px ; padding-top : 5px;">
                 <div class="col-3">
@@ -35,29 +35,29 @@
     </header>
     <main>
             <div class="row">
-                <div class="col-4">
-                    <ul class="nav flex-column pt-2 mb-3 me-3" style="background-color: #0E4159;">
+                <div class="col-3">
+                    <ul class="nav flex-column pt-2 mb-3 me-3" style="background-color: #0E4159; border-top-right-radius: 4px; border-bottom-right-radius: 4px; height: 200px;">
                         <h6 class="text-center">Fabricantes</h6>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./fabricantes/NewFab.php">Nuevo fabricante</a>
+                            <a class="nav-link active link-light mt-4" aria-current="page" href="./fabricantes/NewFab.php">Nuevo fabricante</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./fabricantes/delete&modify.php">Editar/eliminar fabricante</a>
+                            <a class="nav-link link-light" href="./fabricantes/delete&modify.php">Editar/eliminar fabricante</a>
                         </li>
                     </ul>
 
-                    <ul class="nav flex-column pt-2 mb-3 me-3" style="background-color: #0E4159;">
+                    <ul class="nav flex-column pt-2 mb-3 me-3" style="background-color: #0E4159; border-top-right-radius: 4px; border-bottom-right-radius: 4px; height: 200px;">
                         <h6 class="text-center">Productos</h6>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./productos/addProduct.php">Nuevo producto</a>
+                            <a class="nav-link active link-light  mt-4" aria-current="page" href="./productos/addProduct.php">Nuevo producto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./productos/delete&modify.php">Editar/eliminar producto</a>
+                            <a class="nav-link link-light" href="./productos/delete&modify.php">Editar/eliminar producto</a>
                         </li>
                     </ul>
                 </div>
 
-                <div class="row col-8" style="background-color: #0E4159;">
+                <div class="row col-9" style="background-color: #0E4159; border-top-left-radius: 4px; border-bottom-left-radius: 4px;">
                     <?php
                     // Fichero que incluye la conxion con la base de datos
                     include './connection.php';
@@ -69,8 +69,8 @@
                     while ($fila = mysqli_fetch_row($result)) {
                         echo '
                     <div class="col-4 pt-2">
-                    <div class="card m-3">
-                    <a href="./productes.php?codfab=' . $fila[0] . '"><img height="200" src="' . $fila[2] . '" class="card-img-top"></a>
+                    <div class="card m-3" style="border-radius: 4px;">
+                    <a style="border-radius: 4px;" href="./productes.php?codfab=' . $fila[0] . '"><img style="border-radius: 4px;" height="200" src="' . $fila[2] . '" class="card-img-top"></a>
                     </div>
                     </div>';
                     }

@@ -1,3 +1,7 @@
+html{
+    max-width: 100%;
+}
+
 body{
     background-color:  #18719B;
 }
@@ -65,4 +69,9 @@ td{
     text-align: center;
     padding-left: 30px;
     padding-right: 30px;
+}
+
+.cardProd {
+    text-decoration: none;
+    color: #18719B;
 }
