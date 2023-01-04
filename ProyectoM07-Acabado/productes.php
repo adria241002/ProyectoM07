@@ -53,26 +53,20 @@ $paginas = ceil($cantRegistros / $cantRegiPorPag);
     <header style="background-color: #0E4159; height: 50px ; margin-bottom:30px">
         <!-- place navbar here -->
         <div class="row d-flex" style="padding-left:10px ; padding-top : 5px;">
-            <div class="col-3">
-                <h3>Tienda informática</h3>
+                <div class="col-3">
+                        <h3>Tienda informática</h3>
+                </div>
+                <div class="col-3">
+                    <a class="enlaces" href="./fabricants.php"><h3>Inicio</h3> </a>
+                </div>
+                <div class="col-3">
+                    <a class="enlaces" href="./productes.php"><h3>Productos</h3> </a>
+                </div>
+                <div class="col-3">
+                    <a class="enlaces"  href="./fabricants.php"><h3>Fabricantes</h3> </a>
+                </div>
             </div>
-            <div class="col-3">
-                <a class="enlaces" href="./fabricants.php">
-                    <h3>Inicio</h3>
-                </a>
-            </div>
-            <div class="col-3">
-                <a class="enlaces" href="./productes.php">
-                    <h3>Productos</h3>
-                </a>
-            </div>
-            <div class="col-3">
-                <a class="enlaces" href="./fabricants.php">
-                    <h3>Fabricantes</h3>
-                </a>
-            </div>
-        </div>
-    </header>
+    </header>   
     <main>
         <div class="row">
             <div class="col-3">

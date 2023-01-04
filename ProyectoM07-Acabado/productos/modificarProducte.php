@@ -45,13 +45,12 @@
                     include('../connection.php');
                     if (isset($_POST['enviar'])) {
                         $insert2 = "UPDATE producto SET nombre='" . $_POST['nombre'] . 
-                        "', precio='" .$_POST['precio'] . 
-                        "', codigo_fabricante='" . $_POST['fabricante'] ."' WHERE codigo='" . $_GET['p']."'";
+                        "', precio='" . $_POST['precio'] ."', codigo_fabricante='" . $_POST['fabricante'] ."', imagen='" . $_POST['imagen'] ."' WHERE codigo='" . $_GET['p']."'";
                         $esCorrecte2 = mysqli_query($conn,$insert2);
                         if ($esCorrecte2) echo "Producte inserit correctament";
                         if (!$esCorrecte2) echo "Producte INSERIT erroneament";
                         mysqli_close($conn);
-                        header("Location: ./delete&modify.php");
+                        // header("Location: ./delete&modify.php");
                         die();
                     }
                     else{
@@ -66,13 +65,18 @@
                             </div>
 
                             <div class="col-12 mb-3">
-                                <label for="nombre" class="form-label">Precio</label>
-                                <input id="nombre" type="text" class="form-control" name="Precio" value="<?php echo $key['precio']?>">
+                                <label for="precio" class="form-label">Precio</label>
+                                <input id="precio" type="text" class="form-control" name="precio" value="<?php echo $key['precio']?>">
                             </div>
 
                             <div class="col-12 mb-3">
-                                <label for="nombre" class="form-label">Fabricante</label>
-                                <input id="nombre" type="text" class="form-control" name="Fabricante" value="<?php echo $key['codigo_fabricante']?>">
+                                <label for="fabricante" class="form-label">Fabricante</label>
+                                <input id="fabricante" type="text" class="form-control" name="fabricante" value="<?php echo $key['codigo_fabricante']?>">
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <label for="imagen" class="form-label">Imagen</label>
+                                <input id="imagen" type="text" class="form-control" name="imagen" value="<?php echo $key['imagen']?>">
                             </div>
 
                             <div class="col-12 mb-3 d-flex justify-content-center">

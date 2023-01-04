@@ -49,7 +49,7 @@
                         if ($esCorrecte2) echo "Fabricant modificat correctament";
                         if (!$esCorrecte2) echo "Fabricant modificat erroneament";
                         mysqli_close($conn);
-                        // header("Location: ./delete&modify.php");
+                        header("Location: ./delete&modify.php");
                         die();
                     } else {
                         $result = mysqli_query($conn, "SELECT * FROM fabricante where  codigo='" . $_GET['p'] . "'");
