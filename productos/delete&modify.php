@@ -1,4 +1,5 @@
 <?php
+//Generamos la conexion
 include('../connection.php');
 
 $result2 = mysqli_query($conn, "SELECT imagen,prod.codigo as cod, prod.nombre as nom, prod.precio, fab.nombre as nomfab FROM producto prod JOIN fabricante fab ON prod.codigo_fabricante = fab.codigo");
@@ -22,6 +23,7 @@ $result2 = mysqli_query($conn, "SELECT imagen,prod.codigo as cod, prod.nombre as
 <link rel="stylesheet" href="../css/style.css">
 
 <body class="text-white">
+    <!-- Creacion del header -->
     <header style="background-color: #0E4159; height: 40px ; margin-bottom:30px">
         <!-- place navbar here -->
         <div class="row d-flex" style="padding-left:10px ; padding-top : 5px;">
@@ -46,6 +48,7 @@ $result2 = mysqli_query($conn, "SELECT imagen,prod.codigo as cod, prod.nombre as
         </div>
     </header>
     <table>
+        <!-- creamos la tabla con lo necesario para insertar o modificar el fabricante -->
         <tr>
             <th>Nom</th>
             <th>Producto</th>
