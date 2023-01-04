@@ -14,6 +14,7 @@
 
 <body class="text-white">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Creacion del header -->
     <header style="background-color: #0E4159; height: 40px ; margin-bottom:30px">
         <!-- place navbar here -->
         <div class="row d-flex" style="padding-left:10px ; padding-top : 5px;">
@@ -42,8 +43,9 @@
             <div class="row" style="display:flex; align-items:center;">
                 <div class="row">
                     <?php
+                    //Generamos la conexion
                     include('../connection.php');
-
+                    // Si enviamos el formulario nos actualiza el fabricante 
                     if (isset($_POST['enviar'])) {
                         $insert2 = "UPDATE fabricante SET nombre='" . $_POST['nombre'] . "', logoFabricante='" .$_POST['logoFabricante'] . "' WHERE codigo='" . $_GET['p']."'";                        $esCorrecte2 = mysqli_query($conn, $insert2);
                         if ($esCorrecte2) echo "Fabricant modificat correctament";
@@ -55,6 +57,7 @@
                         $result = mysqli_query($conn, "SELECT * FROM fabricante where  codigo='" . $_GET['p'] . "'");
                         foreach ($result as $key) {
                     ?>
+                    <!-- creamos el formulario con lo necesario para modificar el fabricante -->
                     <form action="" method="post">
                         <div class="row">
                             <div class="col-12 mb-3">
