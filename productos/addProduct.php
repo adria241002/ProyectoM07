@@ -1,6 +1,8 @@
 <?php
+//Generamos la conexion
 include('../connection.php');
 $result = mysqli_query($conn, "SELECT * FROM FABRICANTE");
+// Si enviamos el formulario nos inserta el producto 
 if (isset($_POST['enviar'])) {
     $insert = "INSERT INTO producto SET nombre='" . $_POST['nombre'] . 
     "', precio='" .$_POST['precio'] . 
@@ -25,6 +27,7 @@ if (isset($_POST['enviar'])) {
     
 <link rel="stylesheet" href="../css/style.css">
 <body class="text-white">
+    <!-- Creacion del header -->
     <header style="background-color: #0E4159; height: 40px ; margin-bottom:30px">
         <!-- place navbar here -->
         <div class="row d-flex" style="padding-left:10px ; padding-top : 5px;">
@@ -46,6 +49,7 @@ if (isset($_POST['enviar'])) {
         
         <div class="container-fluid" style="width : 500px">  
         <div class="row" style = "display:flex; align-items:center ; ">
+            <!-- creamos el formulario con lo necesario para insertar el producto -->
                 <form action="" method="post">
                     <div class="row"    >
                         <div class="col-12 mb-3">
