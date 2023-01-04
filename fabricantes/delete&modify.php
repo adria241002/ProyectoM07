@@ -13,6 +13,7 @@
 </head>
 <link rel="stylesheet" href="../css/style.css">
 <body class="text-white">
+    <!-- Creacion del header -->
 <header style="background-color: #0E4159; height: 40px ; margin-bottom:30px">
         <!-- place navbar here -->
         <div class="row d-flex" style="padding-left:10px ; padding-top : 5px;">
@@ -33,12 +34,14 @@
 
 <table>
 <?php
+    //Generamos la conexion
 include('../connection.php');
 
 $result2 = mysqli_query($conn ,"SELECT * FROM fabricante");
 
 
 ?>
+    <!-- creamos la tabla -->
 <table>
     <tr>
         <th>Codigo</th>
@@ -49,7 +52,7 @@ $result2 = mysqli_query($conn ,"SELECT * FROM fabricante");
     </tr>
 <?php
 $i=0;
-
+// rellenamos con la informacion de la base de datos y agregamos los botones de modificar y eliminar
 while ($fila =  mysqli_fetch_assoc($result2)) {
     if ($i % 2 == 0) {
         echo "<tr>";
