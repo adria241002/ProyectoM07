@@ -45,12 +45,11 @@
                     include('../connection.php');
 
                     if (isset($_POST['enviar'])) {
-                        $insert2 = "UPDATE fabricante SET nombre='" . $_POST['nombre'] . "', logoFabricante='" . $_POST['logoFabricante'] . "' WHERE codigo='" . $_GET['p'] . "'";
-                        $esCorrecte2 = mysqli_query($conn, $insert2);
+                        $insert2 = "UPDATE fabricante SET nombre='" . $_POST['nombre'] . "', logoFabricante='" .$_POST['logoFabricante'] . "' WHERE codigo='" . $_GET['p']."'";                        $esCorrecte2 = mysqli_query($conn, $insert2);
                         if ($esCorrecte2) echo "Fabricant modificat correctament";
                         if (!$esCorrecte2) echo "Fabricant modificat erroneament";
                         mysqli_close($conn);
-                        header("Location: ./delete&modify.php");
+                        // header("Location: ./delete&modify.php");
                         die();
                     } else {
                         $result = mysqli_query($conn, "SELECT * FROM fabricante where  codigo='" . $_GET['p'] . "'");
@@ -64,8 +63,8 @@
                             </div>
 
                             <div class="col-12 mb-3">
-                                <label for="nombre" class="form-label">Logo</label>
-                                <input id="nombre" type="text" class="form-control" name="logo" value="<?php echo $key['logoFabricante'] ?>">
+                                <label for="logoFabricante" class="form-label">Logo</label>
+                                <input id="logoFabricante" type="text" class="form-control" name="logoFabricante" value="<?php echo $key['logoFabricante'] ?>">
                             </div>
 
                             <div class="col-12 mb-3 d-flex justify-content-center">
