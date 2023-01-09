@@ -44,7 +44,6 @@ $result2 = mysqli_query($conn ,"SELECT * FROM fabricante");
     <!-- creamos la tabla -->
 <table>
     <tr>
-        <th>Codigo</th>
         <th>Nombre</th>
         <th>URL LOGO</th>
         <th>Modificar</th>
@@ -59,7 +58,6 @@ while ($fila =  mysqli_fetch_assoc($result2)) {
     }else{
         echo "<tr>";
     }
-        echo "<td>" . $fila["codigo"] . "</td>";
         echo "<td>" . $fila["nombre"] . "</td>";
         echo "<td><img height='50' src='". $fila["logoFabricante"] . "'></td>";
         echo "<td> <a href='./modificarFabricant.php?p=".$fila["codigo"]."'><span class='material-symbols-outlined'>
