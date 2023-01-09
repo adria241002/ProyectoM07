@@ -28,7 +28,7 @@ if (isset($_POST['enviar'])) {
 <link rel="stylesheet" href="../css/style.css">
 <body class="text-white">
     <!-- Creacion del header -->
-    <header style="background-color: #0E4159; height: 40px ; margin-bottom:30px">
+    <header style="background-color: #0E4159; height: 50px ; margin-bottom:30px">
         <!-- place navbar here -->
         <div class="row d-flex" style="padding-left:10px ; padding-top : 5px;">
                 <div class="col-3">
@@ -66,6 +66,8 @@ if (isset($_POST['enviar'])) {
                             <label for="nombre" class="form-label">Imagen Producto</label>
                             <input id="nombre" type="text" class="form-control" name="imagen" placeholder="Inserta la imagen del Producto" required>
                         </div>
+
+                        <!-- Select para coger uno de los fabricantes existentes -->
                         <div class="col-12 mb-3">
                             <label for="nombre" class="form-label">Codigo Fabricante</label>
                             <select name="codigo_fabricante" class="form-control">

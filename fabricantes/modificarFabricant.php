@@ -15,7 +15,7 @@
 <body class="text-white">
     <link rel="stylesheet" href="../css/style.css">
     <!-- Creacion del header -->
-    <header style="background-color: #0E4159; height: 40px ; margin-bottom:30px">
+    <header style="background-color: #0E4159; height: 50px ; margin-bottom:30px">
         <!-- place navbar here -->
         <div class="row d-flex" style="padding-left:10px ; padding-top : 5px;">
             <div class="col-3">
@@ -38,6 +38,7 @@
             </div>
         </div>
     </header>
+    
     <main>
         <div class="container-fluid" style="background-color: #18719B;width : 500px">
             <div class="row" style="display:flex; align-items:center;">

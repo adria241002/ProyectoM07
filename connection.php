@@ -1,5 +1,5 @@
 <?php
-
+// Fichero para connectar con las base de datos
 function conectaBD() {
     $host = 'localhost';
     $user = 'root';

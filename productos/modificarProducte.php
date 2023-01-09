@@ -15,7 +15,7 @@
 <body class="text-white">
     <link rel="stylesheet" href="../css/style.css">
     <!-- Creacion del header -->
-    <header style="background-color: #0E4159; height: 40px ; margin-bottom:30px">
+    <header style="background-color: #0E4159; height: 50px ; margin-bottom:30px">
         <!-- place navbar here -->
         <div class="row d-flex" style="padding-left:10px ; padding-top : 5px;">
             <div class="col-3">
@@ -53,7 +53,7 @@
                         if ($esCorrecte2) echo "Producte inserit correctament";
                         if (!$esCorrecte2) echo "Producte INSERIT erroneament";
                         mysqli_close($conn);
-                        // header("Location: ./delete&modify.php");
+                        header("Location: ./delete&modify.php");
                         die();
                     }
                     else{
@@ -76,6 +76,13 @@
                             <div class="col-12 mb-3">
                                 <label for="fabricante" class="form-label">Fabricante</label>
                                 <input id="fabricante" type="text" class="form-control" name="fabricante" value="<?php echo $key['codigo_fabricante']?>">
+
+                                <label for="fabricante" class="form-label">Fabricante</label>
+                                <select name="fabricante" id="fabricante">
+                                    <?php 
+                                    
+                                    ?>
+                                </select>
                             </div>
 
                             <div class="col-12 mb-3">
@@ -92,7 +99,6 @@
                     }
                     }
                     ?>
-
                 </div>
             </div>
         </div>

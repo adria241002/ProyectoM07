@@ -33,6 +33,7 @@
                 </div>
             </div>
     </header>
+
     <main>
             <div class="row">
                 <div class="col-3">
@@ -65,7 +66,7 @@
                     // consulta para coger los datos de la base de datos
                     $result = mysqli_query($conn, $query);
                     // Mostrar la informacion de la base de datos en formato tabla
-
+                    // Crear las cartas con los fabricantes de la base de datos
                     while ($fila = mysqli_fetch_row($result)) {
                         echo '
                     <div class="col-4 pt-2">

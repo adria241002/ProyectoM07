@@ -7,9 +7,8 @@ $result = mysqli_query($conn, "SELECT * FROM PRODUCTO WHERE CODIGO=" . $_GET['co
 
 ?>
 
-
 <div class="container">
-    <header style="background-color: #0E4159; height: 40px ; margin-bottom:30px">
+<header style="background-color: #0E4159; height: 50px ; margin-bottom:30px">
         <!-- place navbar here -->
         <div class="row d-flex" style="padding-left:10px ; padding-top : 5px;">
             <div class="col-3 text-white">
