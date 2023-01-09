@@ -80,7 +80,7 @@
                                 <label for="fabricante" class="form-label">Fabricante</label>
                                 <select name="fabricante" id="fabricante">
                                     <?php 
-                                    
+                                    test
                                     ?>
                                 </select>
                             </div>
