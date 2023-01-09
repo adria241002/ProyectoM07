@@ -74,15 +74,21 @@
                             </div>
 
                             <div class="col-12 mb-3">
-                                <label for="fabricante" class="form-label">Fabricante</label>
-                                <input id="fabricante" type="text" class="form-control" name="fabricante" value="<?php echo $key['codigo_fabricante']?>">
+                                <!-- <label for="fabricante" class="form-label">Fabricante</label>
+                                <input id="fabricante" type="text" class="form-control" name="fabricante" value="<?php echo $key['codigo_fabricante']?>"> -->
 
                                 <label for="fabricante" class="form-label">Fabricante</label>
-                                <select name="fabricante" id="fabricante">
+                                <select name="fabricante" id="fabricante" class="col-12">
                                     <?php 
-                                    test
+                                        $query = "SELECT codigo, nombre FROM fabricante";
+                                        $fabricantes = mysqli_query($conn,$query);
+                                        print_r($fabricantes);
+                                        foreach( $fabricantes as $fabricante ){
+                                            echo "<option value='".$fabricante['codigo']."'>".$fabricante['nombre']."</option>";
+                                        };
                                     ?>
                                 </select>
+
                             </div>
 
                             <div class="col-12 mb-3">
